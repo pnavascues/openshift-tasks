@@ -1,10 +1,26 @@
+<%@ page language="java" import="java.util.*" %>
+<%@ page language="java" import="java.io.FileInputStream" %>
+
+<%
+  FileInputStream fis = new FileInputStream("/tasks.properties");
+  Properties props = new Properties();
+  props.load(fis);
+  String loadVisible = props.getProperty("visible.load");
+  String loadLogger = props.getProperty("visible.logger");
+  String loadDanger = props.getProperty("visible.danger");
+  String loadInfo = props.getProperty("visible.info");
+
+
+  String title = props.getProperty("title");
+%>
+
 <!DOCTYPE html>
 <!--[if IE 9]><html lang="en-us" class="ie9"><![endif]-->
 <!--[if gt IE 9]><!-->
 <html lang="en-us">
 <!--<![endif]-->
   <head>
-    <title>OpenShift Demo Tasks</title>
+    <title><%=title%></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +58,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">
-          OpenShift Tasks Demo
+          <%=title%>
         </a>
       </div>
       <div class="collapse navbar-collapse navbar-collapse-1">
@@ -56,6 +72,9 @@
     <div class="container-fluid container-cards-pf">
       <div class="row row-cards-pf">
         <div class="col-md-2 col-md-offset-3">
+
+<% if (loadLogger.equals("true")) { %>
+
           <div class="card-pf">
             <div class="card-pf-heading">
               <h2 class="card-pf-title">
@@ -76,8 +95,14 @@
               </div>
             </div>
           </div>
+
+<% } %>
+
         </div>
         <div class="col-md-2">
+
+<% if (loadVisible.equals("true")) { %>
+
           <div class="card-pf">
             <div class="card-pf-heading">
               <h2 class="card-pf-title">
@@ -100,8 +125,14 @@
               </form>
             </div>
           </div>
+
+<% } %>
+
         </div>
         <div class="col-md-2">
+
+<% if (loadDanger.equals("true")) { %>
+
           <div class="card-pf">
             <div class="card-pf-heading">
               <h2 class="card-pf-title">
@@ -124,10 +155,16 @@
               </div>
             </div>
           </div>
+
+<% } %>
+
         </div>
       </div>
       <div class="row row-cards-pf">
         <div class="col-md-3 col-md-offset-3">
+
+<% if (loadVisible.equals("true")) { %>
+
           <div class="card-pf">
             <div class="card-pf-heading">
               <h2 class="card-pf-title">
@@ -158,6 +195,9 @@
               </div>
             </div>
           </div>
+
+<% } %>
+
         </div>
         <div class="col-md-3">
           <div class="card-pf">
