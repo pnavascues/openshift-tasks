@@ -6,12 +6,6 @@ metadata:
   name: openshift-tasks
 objects:
 - apiVersion: v1
-  kind: ImageStream
-  metadata:
-    labels:
-      application: ${APPLICATION_NAME}
-    name: ${APPLICATION_NAME}
-- apiVersion: v1
   kind: Service
   metadata:
     annotations:
