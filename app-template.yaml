@@ -87,6 +87,9 @@ objects:
             successThreshold: 1
             timeoutSeconds: 1
           name: ${APPLICATION_NAME}
+          volumeMounts:
+            name: config-volume
+            mountPath: /config/
           ports:
           - containerPort: 8778
             name: jolokia
@@ -107,6 +110,10 @@ objects:
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 1
+        volumes:
+          - name: config-volume
+            configMap:
+              name: ${APPLICATION_NAME}
         terminationGracePeriodSeconds: 60
     triggers:
     - imageChangeParams:

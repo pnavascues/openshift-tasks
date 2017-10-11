@@ -2,7 +2,7 @@
 <%@ page language="java" import="java.io.FileInputStream" %>
 
 <%
-  FileInputStream fis = new FileInputStream("/tasks.properties");
+  FileInputStream fis = new FileInputStream("/config/tasks.properties");
   Properties props = new Properties();
   props.load(fis);
   String loadVisible = props.getProperty("visible.load");
