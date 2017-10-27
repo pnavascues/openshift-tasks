@@ -122,7 +122,7 @@ objects:
         - ${APPLICATION_NAME}
         from:
           kind: ImageStream
-          name: ${APPLICATION_NAME}:${APPLICATION_VERSION}
+          name: tasks:${APPLICATION_VERSION}
       type: ImageChange
     - type: ConfigChange
 parameters:
